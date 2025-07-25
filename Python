@@ -1,0 +1,16 @@
+import random
+
+# Mock function to simulate patient registration and randomization
+def register_patient(name, age, condition):
+    patient_id = random.randint(1000, 9999)
+    group = random.choice(["Treatment", "Control"])
+    print(f"Patient Registered: {name}, Age: {age}, Condition: {condition}")
+    print(f"Assigned to Group: {group}, ID: {patient_id}")
+    return {
+        "patient_id": patient_id,
+        "group": group
+    }
+
+# Example usage
+if __name__ == "__main__":
+    register_patient("Alice Smith", 45, "Diabetes")
