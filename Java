@@ -1,0 +1,46 @@
+import java.util.Random;
+import java.util.Scanner;
+
+class Patient {
+    String name;
+    int age;
+    String condition;
+    String group;
+
+    public Patient(String name, int age, String condition) {
+        this.name = name;
+        this.age = age;
+        this.condition = condition;
+        this.group = assignGroup();
+    }
+
+    private String assignGroup() {
+        return new Random().nextBoolean() ? "Treatment" : "Control";
+    }
+
+    public void displayInfo() {
+        System.out.println("Patient: " + name + ", Age: " + age + ", Condition: " + condition);
+        System.out.println("Assigned Group: " + group);
+    }
+}
+
+public class ClinicalTrial {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter patient name: ");
+        String name = sc.nextLine();
+
+        System.out.print("Enter age: ");
+        int age = sc.nextInt();
+        sc.nextLine(); // Consume newline
+
+        System.out.print("Enter condition: ");
+        String condition = sc.nextLine();
+
+        Patient p = new Patient(name, age, condition);
+        p.displayInfo();
+
+        sc.close();
+    }
+}
