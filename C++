@@ -1,0 +1,24 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+int main() {
+    string name, condition;
+    int age;
+    srand(time(0));
+
+    cout << "Enter patient name: ";
+    getline(cin, name);
+    cout << "Enter age: ";
+    cin >> age;
+    cin.ignore();
+    cout << "Enter medical condition: ";
+    getline(cin, condition);
+
+    int group = rand() % 2;
+    cout << "\nPatient " << name << " assigned to: " << (group == 0 ? "Treatment" : "Control") << " group." << endl;
+
+    return 0;
+}
